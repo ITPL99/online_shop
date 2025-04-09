@@ -1,7 +1,7 @@
 package application.service;
-
+import application.command.Exit;
 import application.model.Command;
-
+import application.command.*;
 import java.util.Map;
 
 public class CommandHendel {
