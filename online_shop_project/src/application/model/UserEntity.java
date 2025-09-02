@@ -1,6 +1,6 @@
 package application.model;
 
-public abstract class User extends Model{
+public  class UserEntity extends Model{
     private String username;
     private String password;
 
