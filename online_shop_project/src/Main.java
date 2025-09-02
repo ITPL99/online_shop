@@ -1,28 +1,22 @@
 import application.ApplicationStarter;
 import application.command.Exit;
 import application.command.Help;
+import application.command.Register;
+import application.command.StarterCommand;
+import application.controller.UserController;
+import application.dao.UserDao;
 import application.model.Command;
 import application.service.CommandHendel;
+import application.service.UserServiceImpl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-
-        Map<String,Command> commandMap = new HashMap<>();
-        commandMap.put("exit", new Exit());
-        commandMap.put("help", new Help());
-
-        CommandHendel commandHendel = new CommandHendel(commandMap);
-
-
-        ApplicationStarter app = new ApplicationStarter(scanner, commandHendel);
-        app.run();
-
+        StarterCommand starter = new StarterCommand().applicationStarter();
 
     }
 }

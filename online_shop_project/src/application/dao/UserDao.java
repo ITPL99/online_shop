@@ -2,6 +2,7 @@ package application.dao;
 
 import application.model.UserEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
@@ -9,8 +10,8 @@ public class UserDao {
     private final List<UserEntity> users;
     private Integer userId;
 
-    public UserDao(List<UserEntity> users) {
-        this.users = users;
+    public UserDao() {
+        this.users = new ArrayList<>();
         userId = 1;
     }
 

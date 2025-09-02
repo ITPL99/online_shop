@@ -31,11 +31,7 @@ public class Register implements Command {
             System.out.println("Пароли не совпадают");
             return;
         }
-        UserDTORegister userDTORegister = new UserDTORegister();
-        userDTORegister.setUsername(username);
-        userDTORegister.setPassword(password);
-
-        userController.register(userDTORegister);
+        UserDTORegister userDTORegister = new UserDTORegister(username, password);
 
         System.out.println("Пользователь зарегестрировался " + userController.register(userDTORegister) );
 

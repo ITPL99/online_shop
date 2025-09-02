@@ -4,7 +4,11 @@ public class UserDTORegister {
     private String username;
     private String password;
 
-                 /*
+    public UserDTORegister(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+/*
         login,
         pass,
         firstName,
