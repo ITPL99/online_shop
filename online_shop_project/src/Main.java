@@ -11,6 +11,7 @@ import application.model.UserEntity;
 import application.service.CommandHendel;
 import application.service.UserServiceImpl;
 import container.ApplicationContext;
+import container.Definition;
 
 import java.util.*;
 
@@ -37,6 +38,8 @@ public class Main {
 
 
        new ApplicationContext(Main.class).run();
+
+        Definition definition = new Definition();
 
     }
 }

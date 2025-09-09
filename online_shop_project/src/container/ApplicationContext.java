@@ -18,7 +18,8 @@ public class ApplicationContext {
     private void configurerContext(){
         try {
             List<Class<?>> classList = new ClassScanner(mainClass).getClasses();
-        } catch (URISyntaxException e) {
+
+        } catch (URISyntaxException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
