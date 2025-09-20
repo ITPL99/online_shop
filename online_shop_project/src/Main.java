@@ -39,7 +39,7 @@ public class Main {
 
        new ApplicationContext(Main.class).run();
 
-        Definition definition = new Definition();
+
 
     }
 }
