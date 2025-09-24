@@ -2,6 +2,7 @@ import application.ApplicationStarter;
 import application.command.Exit;
 import application.command.Help;
 import application.command.Register;
+import application.configuration.JavaUtilClassBeanConfigurer;
 import application.controller.UserController;
 import application.dao.UserDao;
 import application.dao.UserDataStorage;
@@ -38,6 +39,9 @@ public class Main {
 
 
        new ApplicationContext(Main.class).run();
+
+
+
 
 
 

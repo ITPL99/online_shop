@@ -5,6 +5,7 @@ import application.service.CommandHendel;
 import java.lang.annotation.ElementType;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
+import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +20,6 @@ public class DefinitionScanner {
             }
 
             if(clazz.isAnnotationPresent(Component.class)){
-
                 if(clazz.equals(CommandHendel.class)) System.out.println(); //TODO УДалить
                 List<Class<?>> interfaces = List.of(clazz.getInterfaces());
                 Class<?> componentType = null;
@@ -57,10 +57,22 @@ public class DefinitionScanner {
                 );
 
                 definitionList.add(definition);
+            }else if (clazz.isAnnotationPresent(Configurer.class)){
+                Method[] methods = clazz.getDeclaredMethods();
+                for (Method method: methods){
+                    if(method.isAnnotationPresent(Bean.class)) {
+                        Definition<?> definition = new Definition<Executable>(
+                                clazz,
+                                method.getReturnType(),
+                                method,
+                                List.of(method.getParameterTypes()),
+                                ElementType.METHOD
+                        );
+                        definitionList.add(definition);
+                    }
+                }
             }
         }
-
-
 
         return definitionList;
     }
